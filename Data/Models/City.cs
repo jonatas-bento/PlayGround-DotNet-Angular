@@ -20,12 +20,12 @@ namespace WorldCities.Data.Models
         [Key]
         [Required]
         public int Id { get; set; }
-        
+
         /// <summary>
         /// City name (in UTF8 format)
         /// </summary>
         public string Name { get; set; }
-        
+
         /// <summary>
         /// City name (in ASCII format)
         /// </summary>
@@ -45,17 +45,17 @@ namespace WorldCities.Data.Models
         #endregion
 
         /// <summary>
-        /// Contry id (foreign key)
+        /// Country id (foreign key)
         /// </summary>
         [ForeignKey(nameof(Country))]
-        public int ContryId { get; set; }
+        public int CountryId { get; set; }
 
         #region Navigation Properties
         /// <summary>
         /// The country related to this city
         /// </summary>
         public virtual Country Country { get; set; }
-        #endregion 
-        
+        #endregion
+
     }
 }

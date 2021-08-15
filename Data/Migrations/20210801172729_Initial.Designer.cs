@@ -9,7 +9,7 @@ using WorldCities.Data;
 namespace WorldCities.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210731232653_Initial")]
+    [Migration("20210801172729_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,7 +27,7 @@ namespace WorldCities.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ContryId")
+                    b.Property<int>("CountryId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Lat")
@@ -44,7 +44,7 @@ namespace WorldCities.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ContryId");
+                    b.HasIndex("CountryId");
 
                     b.ToTable("Cities");
                 });
@@ -74,7 +74,7 @@ namespace WorldCities.Data.Migrations
                 {
                     b.HasOne("WorldCities.Data.Models.Country", "Country")
                         .WithMany("Cities")
-                        .HasForeignKey("ContryId")
+                        .HasForeignKey("CountryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
